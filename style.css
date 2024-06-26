@@ -1,0 +1,156 @@
+@font-face {
+    font-family: Atteron;
+    src: url(Atteron.otf) format("truetype");
+}
+
+header{
+    margin-left: 40px;
+    margin-top: 40px;
+    letter-spacing: 2px;
+    font-size: 10px;
+    font-style: italic;
+    font-family: 'Cardo', sans-serif;
+}
+body{
+    padding:0;
+    margin:0;
+    background-color: #E3D5C9;
+}
+#First_Page + #Personality + #Portfolio + #Information{
+    height: 100vh;
+}
+
+#First_Page{
+    height: 765px;
+}
+#First_Page .Title{
+    display: flex;
+    justify-content: center;
+}
+#First_Page .Title_content{
+    text-align: center;
+    font-size: 80px;
+    letter-spacing: 5px;
+    font-family: 'Atteron', sans-serif;
+}
+.Hyperlink{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.Hyperlink_content{
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+}
+.Hyperlink_content > .Block{
+    font-size: 20px;
+    font-style: italic;
+    font-family: 'Cardo', sans-serif;
+    text-align: center;
+}
+
+.Clear{
+    clear:both;
+}
+
+#Personality .Title_content{
+    margin-left: 60px;
+    letter-spacing: 2px;
+    font-size: 60px;
+    font-family: 'Atteron', sans-serif;
+}
+#Personality .Content{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+#Personality .Content .Content_content{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+#Personality .Content_content .Block{
+    width: 280px;
+    font-size:20px;
+}
+#Personality .Content_content .Block .img_block{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+
+#Portfolio{
+    display: flex;
+    justify-content: center;
+}
+#Portfolio .Content{
+    margin-top: 120px;
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+#Portfolio .Title_content{
+    font-size: 60px;
+    letter-spacing: 2px;
+    font-family: 'Atteron', sans-serif;
+}
+#Portfolio .content li{
+    font-size: 30px;
+}
+#Portfolio .img_block_right{
+    margin-top: 150px;
+    display:flex;
+    justify-content: end;
+}
+
+#Information .Title{
+    display: flex;
+    justify-content: center;
+}
+#Information .Title_content{
+    margin-top: 100px;
+    font-size:60px;
+    font-family: 'Atteron', sans-serif;
+    letter-spacing: 2px;
+}
+#Information .Content{
+    display: flex;
+    justify-content: center;
+}
+#Information .Content .content{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin-top: 120px;
+}
+#Information .Block{
+    width: 200px;
+}
+#Information .Block > p{
+    font-size:20px;
+}
+#Information .answer{
+    font-size:15px;
+    font-family: 'Cardo',sans-serif;
+    font-style: italic;
+}
+#Information .answer a{
+    text-decoration: none;
+    color: black;
+}
+#Information .answer a:hover{
+    text-decoration: underline;
+    color: blue;
+}
+
+footer{
+    background-color: bisque;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
