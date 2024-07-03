@@ -101,6 +101,7 @@ body{
 @media(max-width: 480px){
     #Personality .Title_content{
         font-size:40px;
+        margin-left: 20px;
     }
     #Personality .Content img{
         width: 175px;
@@ -154,8 +155,8 @@ body{
         font-size: 20px;
     }
     #Portfolio .Content img{
-        width: 315px;
-        height: 210px;
+        width: 280px;
+        height: 200px;
     }
     #Portfolio .Block_right img{
         width: 200px;
@@ -213,8 +214,8 @@ body{
         font-size: 40px;
     }
     #Information .Content .content{
+        margin-top: 50px;
         flex-wrap: wrap;
-        background-color: antiquewhite;
         justify-content: space-evenly;
     }
     #Information .Block{
