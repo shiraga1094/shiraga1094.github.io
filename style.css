@@ -50,6 +50,16 @@ body{
     font-family: 'Cardo', sans-serif;
     text-align: center;
 }
+@media(max-width: 480px){
+    #First_Page .Title_content{
+        font-size: 60px;
+    }
+    #First_Page .Hyperlink img{
+        width: 102px;
+        height: 102px;
+    }
+}
+
 
 .Clear{
     clear:both;
@@ -86,6 +96,15 @@ body{
     #Personality .Content .Content_content{
         flex-wrap:wrap;
         justify-content: space-evenly;
+    }
+}
+@media(max-width: 480px){
+    #Personality .Title_content{
+        font-size:40px;
+    }
+    #Personality .Content img{
+        width: 175px;
+        height: 175px;
     }
 }
 
@@ -125,6 +144,22 @@ body{
 @media(max-width: 860px){
     #Portfolio .Block_right{
         display: block;
+    }
+}
+@media(max-width: 480px){
+    #Portfolio .Title_content{
+        font-size: 40px;
+    }
+    #Portfolio .content li{
+        font-size: 20px;
+    }
+    #Portfolio .Content img{
+        width: 315px;
+        height: 210px;
+    }
+    #Portfolio .Block_right img{
+        width: 200px;
+        height: 240px;
     }
 }
 
@@ -171,6 +206,19 @@ body{
 @media(max-width:790px){
     #Information .Block{
         width: 30%;
+    }
+}
+@media(max-width: 480px){
+    #Information .Title_content{
+        font-size: 40px;
+    }
+    #Information .Content .content{
+        flex-wrap: wrap;
+        background-color: antiquewhite;
+        justify-content: space-evenly;
+    }
+    #Information .Block{
+        width: 100%;
     }
 }
 
