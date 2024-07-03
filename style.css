@@ -40,8 +40,9 @@ body{
 }
 .Hyperlink_content{
     display: flex;
-    width: 40%;
+    width: 600px;
     justify-content: space-between;
+
 }
 .Hyperlink_content > .Block{
     font-size: 20px;
@@ -81,6 +82,12 @@ body{
     padding-bottom: 30px;
 }
 
+@media(max-width: 1160px){
+    #Personality .Content .Content_content{
+        flex-wrap:wrap;
+        justify-content: space-evenly;
+    }
+}
 
 #Portfolio{
     display: flex;
@@ -104,6 +111,21 @@ body{
     margin-top: 150px;
     display:flex;
     justify-content: end;
+}
+
+@media(max-width: 1110px){
+    #Portfolio .Content{
+        display: inline;
+    }
+    #Portfolio .Block_right{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+@media(max-width: 860px){
+    #Portfolio .Block_right{
+        display: block;
+    }
 }
 
 #Information .Title{
@@ -144,6 +166,12 @@ body{
 #Information .answer a:hover{
     text-decoration: underline;
     color: blue;
+}
+
+@media(max-width:790px){
+    #Information .Block{
+        width: 30%;
+    }
 }
 
 footer{
