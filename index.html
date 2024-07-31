@@ -3,6 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Shiraga1094的網站 </title>
+        <link rel="icon" href="shiragaicon.ico">
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,9 +12,31 @@
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     </head>
     <body>
-        <header>
-            <h1> Shiraga1094的網站 </h1>
-        </header>
+        <script  src=main.js></script>
+        <nav id="Navbar">
+            <div class="Navbar_Title">
+                <a href="index.html">
+                    <h1> Shiraga1094的網站 </h1>
+                </a>
+            </div>
+            <input type="checkbox" id="Navbar_Listcheckbox">
+            <span>
+                <div class="Navbar_Content"> 
+                    <p> About </p> 
+                </div>
+                <div class="Navbar_Content"> 
+                    <p> Portfolio </p>
+                </div>
+                <div class="Navbar_Content"> 
+                    <p class="Navbar_Blog"> Blog </p> 
+                </div>
+            </span>
+            <div class="Navbar_ListButton">
+                <label for="Navbar_Listcheckbox">
+                    <img width="50px" height="50px" src="img/list_icon.png">
+                </label>
+            </div>
+        </nav>
         <div id="First_Page">
             <div class="Title">
                 <div class="Title_content" data-aos="fade-down" data-aos-duration="1500">

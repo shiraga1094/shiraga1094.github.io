@@ -3,14 +3,73 @@
     src: url(Atteron.otf) format("truetype");
 }
 
-header{
+#Navbar{
+    z-index: 9999;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #f1d9c3;
+    font-size: 20px;
+}
+#Navbar .Navbar_Title{
     margin-left: 40px;
-    margin-top: 40px;
+    margin-right: 40px;
+}
+#Navbar .Navbar_Title a{
+    text-decoration: none;
+}
+#Navbar span{
+    display: flex;
+}
+#Navbar .Navbar_Title h1{
+    font-size: 20px;
     letter-spacing: 2px;
-    font-size: 10px;
     font-style: italic;
     font-family: 'Cardo', sans-serif;
+    color:black;
 }
+#Navbar .Navbar_Content{
+    width: 10%;
+    min-width: 100px;
+    text-align: center;
+}
+#Navbar .Navbar_Content:hover{
+    background-color: #d7c1ad;
+}
+#Navbar .Navbar_ListButton{
+    visibility: hidden;
+}
+#Navbar input{
+    display: none;
+}
+@media(max-width:600px){
+    #Navbar .Navbar_ListButton{
+        visibility: visible;
+        position: fixed;
+        right: 20px;
+        top: 6px;
+    }
+    #Navbar{
+        display: block;
+        padding-bottom: -100px;
+    }
+    #Navbar span{
+        display: none;
+    }
+    #Navbar input:checked~.Navbar_Content:hover{
+        background-color: #d7c1ad;
+    }
+    #Navbar input:checked~span{
+        display:flex;
+        flex-wrap: wrap;
+    }
+    #Navbar .Navbar_Content{
+        width:100%;
+    }
+}
+
+
 body{
     padding:0;
     margin:0;
@@ -24,6 +83,7 @@ body{
     height: 765px;
 }
 #First_Page .Title{
+    padding-top: 40px;
     display: flex;
     justify-content: center;
 }
@@ -49,6 +109,14 @@ body{
     font-style: italic;
     font-family: 'Cardo', sans-serif;
     text-align: center;
+}
+#First_Page .Hyperlink img{
+    transform: scale(1,1);
+    transition: all 0.5s ease-out;
+}
+#First_Page .Hyperlink img:hover{
+    transform:scale(1.2, 1.2);
+    transition: all 0.5s ease-out;
 }
 @media(max-width: 480px){
     #First_Page .Title_content{
