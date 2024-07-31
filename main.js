@@ -5,7 +5,7 @@ let addtouch=function(){
 }
 let check=function(){
     if(touch>500){
-        alert("Done");
+        alert("親，您已點擊此頁500次，給您換個遊戲玩玩能不能放過我?");
         document.location.href="game.html";
     }
 }

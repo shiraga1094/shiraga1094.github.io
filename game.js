@@ -1,3 +1,62 @@
+class Node {
+    constructor(val, priority) {
+      this.val = val;
+      this.priority = priority;
+    }
+  }
+class PriorityQueue {
+    constructor() {
+      this.values = [];
+    }
+
+    enqueue(val, priority) {
+      this.values.push(new Node(val, priority));
+      this.values.length > 1 && this.bubbleUp();
+    }
+  
+    bubbleUp() {
+      let idx = this.values.length - 1;
+      let parentIdx = Math.floor((idx - 1) / 2);
+      const { values } = this;
+      while (values[idx].priority < values[parentIdx]?.priority) {
+        [values[idx], values[parentIdx]] = [values[parentIdx], values[idx]];
+        idx = parentIdx;
+        parentIdx = Math.floor((idx - 1) / 2);
+      }
+    }
+  
+    dequeue() {
+      const lastIdx = this.values.length - 1;
+      [this.values[0], this.values[lastIdx]] = [
+        this.values[lastIdx],
+        this.values[0],
+      ];
+      const extractedNode = this.values.pop();
+      this.values.length > 1 && this.sinkDown();
+      return extractedNode;
+    }
+
+    sinkDown() {
+      let idx = 0;
+      let leftIdx = 2 * idx + 1;
+      let rightIdx = 2 * idx + 2;
+      const { values } = this;
+      while (
+        values[idx].priority > values[leftIdx]?.priority ||
+        values[idx].priority > values[rightIdx]?.priority
+      ) {
+        if (values[rightIdx]?.priority < values[leftIdx]?.priority) {
+          [values[idx], values[rightIdx]] = [values[rightIdx], values[idx]];
+          idx = rightIdx;
+        } else {
+          [values[idx], values[leftIdx]] = [values[leftIdx], values[idx]];
+          idx = leftIdx;
+        }
+        leftIdx = 2 * idx + 1;
+        rightIdx = 2 * idx + 2;
+      }
+    }
+}
 let isGameon=0;
 var Allpanpan=[23,4,0,5,5,56,90,76];
 let Cost=0;
@@ -10,9 +69,37 @@ let PerfectAnswer=582;
 let tmp_pos=-1;
 let GameOverMessage;
 let lock=-1;
+let pQ= new PriorityQueue();
 
 
+let rand=function(){
+    return Math.floor(Math.random()*1000);
+}
+let Update_Allpanpan=function(){
+    for(let i=0; i<8; i++){
+        Allpanpan[i]=rand();
+    }
+}
+let Update_PerfectAnswer=function(){
+    let L= new Node(), R= new Node();
+    let sum=0;
+    for(let i=0; i<8; i++){
+        pQ.enqueue(Allpanpan[i], Allpanpan[i]);
+    }
+    for(let i=0; i<7; i++){
+        L=pQ.dequeue(); R=pQ.dequeue();
+        sum+=L.val+R.val;
+        pQ.enqueue(L.val+R.val, (L.val+R.val));
+    }
+    PerfectAnswer=sum;
+}
+let Update_Time=function(){;
+    Time= new Date();
+}
 let Start_Game=function(){
+    Update_Time();
+    Update_Allpanpan();
+    Update_PerfectAnswer();
     Start_Time=Time.getTime();
     isGameon=1;
     clock=setInterval(Game_Process, 50);
@@ -23,9 +110,9 @@ let Start_Game=function(){
     Game.style.visibility="visible";
 }
 let isGameOver=function(){
-    Time= new Date();
+    Update_Time();
     End_Time=Time.getTime();
-    if(RestAmount<=1 || Total_time<=0){
+    if(RestAmount<=1 || End_Time-Start_Time>Total_time){
         return 1;
     }
     return 0;

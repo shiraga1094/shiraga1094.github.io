@@ -3,9 +3,20 @@ body{
     padding:0;
     margin:0;
     background-color: #E3D5C9;
+    justify-content: center;
 }
 body ul{
     list-style-type: none;
+    margin:0;
+    padding:0;
+    margin-bottom: 10px;
+}
+
+#Intro .Rule_content{
+    font-size: 20px;
+}
+#Intro #Button button{ 
+    font-size: 20px;
 }
 
 #Game{
@@ -13,13 +24,14 @@ body ul{
 }
 #Game .Manypanpan{
     display:flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
 #Game .Manypanpan div{
     visibility: visible;
     font-size: 30px;
-    width: 10%;
+    width: 20%;
     min-width: 40px;
     height: max-content;
     text-align: center;
