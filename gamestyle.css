@@ -40,4 +40,12 @@ body ul{
     background-color: #e5a166;
     justify-content: space-between;
 }
+#Game .Manypanpan div{
+    transform: scale(1,1);
+    transition: all 0.3s ease-out;
+}
+#Game .Manypanpan div:hover{
+    transform: scale(1.1, 1.1);
+    transition: all 0.3s ease-out;
+}
 
