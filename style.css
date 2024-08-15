@@ -122,6 +122,9 @@ body{
     #First_Page .Title_content{
         font-size: 60px;
     }
+    #First_Page .Hyperlink_content{
+        flex-wrap: wrap;
+    }
     #First_Page .Hyperlink img{
         width: 102px;
         height: 102px;
