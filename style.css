@@ -203,6 +203,14 @@ body{
     display:flex;
     justify-content: end;
 }
+#Portfolio .Block_right a{
+    color: black;
+    text-decoration: none;
+}
+#Portfolio .Block_right a:hover{
+    text-decoration: underline;
+    color: blue;
+}
 
 @media(max-width: 1110px){
     #Portfolio .Content{
