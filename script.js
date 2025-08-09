@@ -56,48 +56,29 @@ function switchLanguage(lang) {
         group.classList.add('active');
     });
     
-    // 更新單獨的文本元素
+    // 更新文本元素
     const texts = translations[lang];
     document.title = texts.title;
     document.documentElement.lang = lang === 'zh' ? 'zh-TW' : lang;
     
-    // 更新桌面版選單
+    // 更新導航選單
     document.getElementById('nav-about').textContent = texts.navAbout;
     document.getElementById('nav-portfolio').textContent = texts.navPortfolio;
     document.getElementById('nav-contact').textContent = texts.navContact;
     
-    // 更新手機版選單
-    document.getElementById('mobile-nav-about').textContent = texts.navAbout;
-    document.getElementById('mobile-nav-portfolio').textContent = texts.navPortfolio;
-    document.getElementById('mobile-nav-contact').textContent = texts.navContact;
-    
     document.getElementById('hero-desc').innerHTML = texts.heroDesc;
     document.getElementById('footer-text').textContent = texts.footerText;
+    
+    // 關閉手機選單
+    closeNavMenu();
 }
 
-// 手機選單控制
-function toggleMobileMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const overlay = document.querySelector('.mobile-menu-overlay');
-    
-    mobileMenu.classList.toggle('active');
-    overlay.classList.toggle('active');
-    
-    // 防止背景滾動
-    if (mobileMenu.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = '';
+// 關閉導航選單
+function closeNavMenu() {
+    const checkbox = document.getElementById('navbar-checkbox');
+    if (checkbox) {
+        checkbox.checked = false;
     }
-}
-
-function closeMobileMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    const overlay = document.querySelector('.mobile-menu-overlay');
-    
-    mobileMenu.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
 }
 
 // 載入動畫控制
@@ -150,7 +131,7 @@ document.querySelectorAll('.about-section, .portfolio-section, .contact-section'
     sectionObserver.observe(section);
 });
 
-// 平滑滾動
+// 平滑滾動和關閉選單
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -161,6 +142,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 block: 'start'
             });
         }
+        // 點擊連結後關閉選單
+        closeNavMenu();
     });
 });
 
@@ -197,13 +180,23 @@ document.addEventListener('keydown', (e) => {
     
     // ESC 鍵關閉手機選單
     if (e.key === 'Escape') {
-        closeMobileMenu();
+        closeNavMenu();
     }
 });
 
 // 視窗大小改變時關閉手機選單
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
-        closeMobileMenu();
+        closeNavMenu();
+    }
+});
+
+// 點擊頁面其他地方關閉選單
+document.addEventListener('click', (e) => {
+    const navbar = document.querySelector('.navbar');
+    const checkbox = document.getElementById('navbar-checkbox');
+    
+    if (checkbox && checkbox.checked && !navbar.contains(e.target)) {
+        closeNavMenu();
     }
 });
