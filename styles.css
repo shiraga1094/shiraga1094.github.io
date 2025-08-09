@@ -197,14 +197,20 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
+    padding: 10px;
     z-index: 1001;
     position: relative;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+    background: rgba(107, 91, 77, 0.1);
 }
 
 .mobile-menu-toggle img {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     filter: brightness(0) saturate(100%) invert(45%) sepia(12%) saturate(1345%) hue-rotate(21deg) brightness(92%) contrast(90%);
     transition: all 0.3s ease;
 }
@@ -218,8 +224,8 @@ body {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 70%;
-    max-width: 300px;
+    width: 75%;
+    max-width: 320px;
     height: 100vh;
     background: rgba(241, 217, 195, 0.98);
     backdrop-filter: blur(20px);
@@ -228,8 +234,9 @@ body {
     transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: flex;
     flex-direction: column;
-    padding: 80px 30px 30px;
+    padding: 100px 30px 30px;
     box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
 }
 
 .mobile-menu.active {
@@ -241,6 +248,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0;
+    margin-top: 20px;
 }
 
 .mobile-menu-item {
@@ -255,12 +263,13 @@ body {
     display: block;
     text-decoration: none;
     color: #6b5b4d;
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 1px;
-    padding: 20px 0;
+    padding: 25px 0;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    font-weight: 500;
 }
 
 .mobile-menu-item a::before {
@@ -275,12 +284,14 @@ body {
     z-index: -1;
 }
 
-.mobile-menu-item a:hover {
+.mobile-menu-item a:hover,
+.mobile-menu-item a:active {
     color: #2c2c2c;
     padding-left: 15px;
 }
 
-.mobile-menu-item a:hover::before {
+.mobile-menu-item a:hover::before,
+.mobile-menu-item a:active::before {
     left: 0;
 }
 
@@ -752,18 +763,32 @@ body {
     }
     
     .nav-menu {
-        display: none;
+        display: none !important;
     }
     
     .mobile-menu-toggle {
-        display: block;
+        display: block !important;
     }
     
-    /* 語言切換器 */
+    /* 確保手機版選單在合適的位置 */
+    .mobile-menu {
+        width: 80%;
+        max-width: 280px;
+        padding: 100px 25px 30px;
+    }
+    
+    /* 調整選單項目大小 */
+    .mobile-menu-item a {
+        font-size: 18px;
+        padding: 25px 0;
+    }
+    
+    /* 語言切換器手機版調整 */
     .language-switcher {
         bottom: 20px;
         left: 20px;
         padding: 10px 14px;
+        z-index: 1002;
     }
 
     .lang-button {
@@ -771,6 +796,7 @@ body {
         padding: 6px 10px;
     }
 
+    /* 主視覺區調整 */
     .hero-content {
         padding: 0 20px;
     }
@@ -784,6 +810,7 @@ body {
         height: 60px;
     }
 
+    /* 區段間距調整 */
     .section {
         padding: 80px 0;
     }
@@ -798,12 +825,14 @@ body {
         padding: 0 20px;
     }
 
+    /* 能力卡片手機版調整 */
     .ability-card {
         flex-direction: column !important;
         text-align: center !important;
         gap: 30px;
         min-height: auto;
         align-items: center;
+        padding: 40px 30px;
     }
 
     .card-content {
@@ -820,6 +849,7 @@ body {
         height: 150px;
     }
 
+    /* 作品集手機版調整 */
     .portfolio-showcase {
         flex-direction: column;
     }
@@ -833,6 +863,7 @@ body {
         grid-template-columns: 1fr;
     }
 
+    /* 聯絡資訊手機版調整 */
     .info-grid {
         gap: 40px;
     }
