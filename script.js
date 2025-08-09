@@ -29,7 +29,7 @@ const translations = {
         navAbout: 'Tentang',
         navPortfolio: 'Portofolio',
         navContact: 'Kontak',
-        heroDesc: 'Passionate belajar, khususnya ilmu komputer.<br>Terus berkembang dalam programming dan algoritma.',
+        heroDesc: 'Berantusias dalam belajar, khususnya dalam ilmu komputer. <br>Terus mengembangkan ilmu di bidang programming dan algoritma.',
         footerText: '© 2024 Shiraga1094. Hak cipta dilindungi.'
     }
 };
