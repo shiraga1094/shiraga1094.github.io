@@ -9,8 +9,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="terminal.css">
 </head>
 <body>
+    <!-- 終端機啟動動畫 -->
+    <div class="terminal-startup">
+        <div class="terminal-lines">
+            <div class="terminal-line">
+                <span class="prompt">shiraga@portfolio:~$</span>
+                <span class="command"> cd website</span>
+            </div>
+            <div class="terminal-line">
+                <span class="output">Entering website directory...</span>
+            </div>
+            <div class="terminal-line">
+                <span class="prompt">shiraga@portfolio:~/website$</span>
+                <span class="command"> ls -la</span>
+            </div>
+            <div class="terminal-line">
+                <span class="output">drwxr-xr-x 3 shiraga staff  96 Aug  9 2025 about/</span>
+            </div>
+            <div class="terminal-line">
+                <span class="output">drwxr-xr-x 2 shiraga staff  64 Aug  9 2025 portfolio/</span>
+            </div>
+            <div class="terminal-line">
+                <span class="output">-rw-r--r-- 1 shiraga staff 2048 Aug  9 2025 index.html</span>
+            </div>
+            <div class="terminal-line">
+                <span class="prompt">shiraga@portfolio:~/website$</span>
+                <span class="command"> npm start</span>
+            </div>
+            <div class="terminal-line">
+                <span class="output">Starting development server...</span>
+            </div>
+            <div class="terminal-line">
+                <span class="output">Server running at http://localhost:3000</span>
+            </div>
+            <div class="terminal-line">
+                <span class="output">Opening website...</span>
+            </div>
+            <div class="terminal-line final-line">
+                <span class="prompt">shiraga@portfolio:~/website$</span>
+                <span class="cursor"></span>
+            </div>
+        </div>
+    </div>
+
     <!-- 語言切換器 -->
     <div class="language-switcher">
         <button class="lang-button active" onclick="switchLanguage('zh')">中文</button>
@@ -509,6 +553,7 @@
         </div>
     </footer>
 
+    <script src="terminal.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

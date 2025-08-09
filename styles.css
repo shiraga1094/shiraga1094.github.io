@@ -34,12 +34,21 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 10000;
-    transition: opacity 1.2s ease, visibility 1.2s ease;
+    /* 移除 transition，讓背景立即顯示 */
+    opacity: 1;
+    visibility: visible;
+}
+
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0s, visibility 0s; /* 立即隱藏 */
 }
 
 .loader.fade-out {
     opacity: 0;
     visibility: hidden;
+    transition: opacity 1.2s ease, visibility 1.2s ease; /* 只有淡出時才有過渡 */
 }
 
 .loader-content {

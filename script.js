@@ -81,13 +81,19 @@ function closeNavMenu() {
     }
 }
 
-// 載入動畫控制
-window.addEventListener('load', () => {
+// 載入動畫控制 - 由終端機動畫觸發
+window.startLoaderAnimation = function() {
     const loader = document.querySelector('.loader');
-    setTimeout(() => {
-        loader.classList.add('fade-out');
-    }, 3000);
-});
+    if (loader) {
+        loader.style.opacity = '1';
+        loader.style.visibility = 'visible';
+        
+        // 3秒後淡出載入動畫
+        setTimeout(() => {
+            loader.classList.add('fade-out');
+        }, 3000);
+    }
+};
 
 // 滾動觸發動畫
 const observerOptions = {
