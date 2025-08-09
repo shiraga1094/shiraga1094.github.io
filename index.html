@@ -27,17 +27,42 @@
         </div>
     </div>
 
+    <!-- 手機版選單遮罩 -->
+    <div class="mobile-menu-overlay" onclick="toggleMobileMenu()"></div>
+
     <!-- 導航欄 -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">Shiraga1094</a>
+            
+            <!-- 桌面版選單 -->
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#about" id="nav-about">關於我</a></li>
                 <li class="nav-item"><a href="#portfolio" id="nav-portfolio">作品集</a></li>
                 <li class="nav-item"><a href="#contact" id="nav-contact">聯絡方式</a></li>
             </ul>
+            
+            <!-- 手機版漢堡選單按鈕 -->
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <img src="img/list_icon.png" alt="選單">
+            </button>
         </div>
     </nav>
+
+    <!-- 手機版選單 -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <a href="#about" onclick="closeMobileMenu()" id="mobile-nav-about">關於我</a>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="#portfolio" onclick="closeMobileMenu()" id="mobile-nav-portfolio">作品集</a>
+            </li>
+            <li class="mobile-menu-item">
+                <a href="#contact" onclick="closeMobileMenu()" id="mobile-nav-contact">聯絡方式</a>
+            </li>
+        </ul>
+    </div>
 
     <!-- 主視覺區 -->
     <section class="hero-section">

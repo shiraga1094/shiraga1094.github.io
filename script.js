@@ -61,11 +61,43 @@ function switchLanguage(lang) {
     document.title = texts.title;
     document.documentElement.lang = lang === 'zh' ? 'zh-TW' : lang;
     
+    // 更新桌面版選單
     document.getElementById('nav-about').textContent = texts.navAbout;
     document.getElementById('nav-portfolio').textContent = texts.navPortfolio;
     document.getElementById('nav-contact').textContent = texts.navContact;
+    
+    // 更新手機版選單
+    document.getElementById('mobile-nav-about').textContent = texts.navAbout;
+    document.getElementById('mobile-nav-portfolio').textContent = texts.navPortfolio;
+    document.getElementById('mobile-nav-contact').textContent = texts.navContact;
+    
     document.getElementById('hero-desc').innerHTML = texts.heroDesc;
     document.getElementById('footer-text').textContent = texts.footerText;
+}
+
+// 手機選單控制
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    
+    mobileMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    
+    // 防止背景滾動
+    if (mobileMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+function closeMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    
+    mobileMenu.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
 }
 
 // 載入動畫控制
@@ -161,5 +193,17 @@ document.addEventListener('keydown', (e) => {
                 switchLanguage('id');
                 break;
         }
+    }
+    
+    // ESC 鍵關閉手機選單
+    if (e.key === 'Escape') {
+        closeMobileMenu();
+    }
+});
+
+// 視窗大小改變時關閉手機選單
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        closeMobileMenu();
     }
 });
