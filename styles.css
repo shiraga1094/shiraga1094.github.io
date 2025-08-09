@@ -341,7 +341,7 @@ body {
     font-size: 14px;
     color: #6b5b4d;
     letter-spacing: 2px;
-    margin-bottom: 20px; /* 減少間距 */
+    margin-bottom: 30px;
     opacity: 0;
     animation: heroFadeIn 1.2s ease-out 0.8s forwards;
 }
@@ -352,7 +352,7 @@ body {
     color: #2c2c2c;
     line-height: 1.3;
     letter-spacing: 2px;
-    margin-bottom: 25px; /* 減少間距 */
+    margin-bottom: 40px;
     opacity: 0;
     animation: heroFadeIn 1.2s ease-out 1.2s forwards;
 }
@@ -361,7 +361,7 @@ body {
     font-size: 16px;
     color: #6b5b4d;
     line-height: 1.8;
-    margin-bottom: 40px; /* 減少間距 */
+    margin-bottom: 60px;
     opacity: 0;
     animation: heroFadeIn 1.2s ease-out 1.6s forwards;
 }
@@ -902,36 +902,67 @@ body {
     }
 
     /* 主視覺區調整 */
-    .hero-content {
-        padding: 0 20px;
+    .hero-section {
+        height: 100vh;
+        padding-top: 60px; /* 導航欄空間 */
+        padding-bottom: 80px; /* 語言切換器空間 */
     }
 
-    .hero-section {
-        padding-top: 50px; /* 大幅減少手機版上間距 */
-        padding-bottom: 20px; /* 為底部留一點空間 */
+    .hero-content {
+        padding: 0 20px;
+        height: 100%; /* 占滿剩餘空間 */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly; /* 平均分配空間 */
     }
 
     .hero-subtitle {
-        margin-bottom: 15px; /* 手機版進一步壓縮 */
+        margin-bottom: 0; /* 移除底部間距，讓 space-evenly 控制 */
+        font-size: 12px;
     }
 
     .hero-title {
-        margin-bottom: 20px; /* 手機版進一步壓縮 */
-        font-size: clamp(2.5rem, 7vw, 4rem); /* 手機版稍微縮小標題 */
+        margin-bottom: 0;
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
+        line-height: 1.2;
     }
 
     .hero-description {
-        margin-bottom: 30px; /* 手機版進一步壓縮 */
-        font-size: 14px; /* 手機版字體稍小 */
+        margin-bottom: 0;
+        font-size: 14px;
+        line-height: 1.6;
     }
 
     .hero-links {
-        gap: 40px;
+        gap: 25px;
+        margin: 0; /* 移除外邊距 */
+    }
+
+    .social-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 8px;
+    }
+
+    .social-label {
+        font-size: 10px;
+        letter-spacing: 0.5px;
+    }言切換器高度 */
+    }
+
+    .hero-links {
+        gap: 30px; /* 手機版縮小間距 */
     }
 
     .social-icon {
         width: 60px;
         height: 60px;
+    }
+
+    .social-label {
+        font-size: 11px; /* 確保標籤文字顯示 */
+        letter-spacing: 0.5px;
+        margin-top: 8px; /* 給圖標和文字間留空間 */
     }
 
     /* 區段間距調整 */
