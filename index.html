@@ -1,205 +1,502 @@
 <!DOCTYPE html>
-<html lang="utf-8">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Shiraga1094的網站 </title>
-        <link rel="icon" href="shiragaicon.ico">
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    </head>
-    <body>
-        <script  src=main.js></script>
-        <nav id="Navbar">
-            <div class="Navbar_Title">
-                <a href="index.html">
-                    <h1> Shiraga1094的網站 </h1>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiraga1094的網站</title>
+    <link rel="icon" href="shiragaicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 語言切換器 -->
+    <div class="language-switcher">
+        <button class="lang-button active" onclick="switchLanguage('zh')">中文</button>
+        <button class="lang-button" onclick="switchLanguage('en')">EN</button>
+        <button class="lang-button" onclick="switchLanguage('ja')">日本語</button>
+        <button class="lang-button" onclick="switchLanguage('id')">ID</button>
+    </div>
+
+    <!-- 載入動畫 -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-text">Shiraga1094</div>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- 導航欄 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Shiraga1094</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#about" id="nav-about">關於我</a></li>
+                <li class="nav-item"><a href="#portfolio" id="nav-portfolio">作品集</a></li>
+                <li class="nav-item"><a href="#contact" id="nav-contact">聯絡方式</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主視覺區 -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-subtitle">Developer & Student</div>
+            <h1 class="hero-title">Shiraga's<br>Website</h1>
+            <p class="hero-description" id="hero-desc">
+                熱衷學習，更愛資訊領域。<br>
+                持續在程式設計與演算法的道路上精進。
+            </p>
+            <div class="hero-links">
+                <a href="https://www.instagram.com/c_algorithm_/" class="social-link">
+                    <img src="img/Instagram.png" class="social-icon" alt="Instagram">
+                    <div class="social-label">Instagram</div>
+                </a>
+                <a href="https://www.facebook.com/Shiraga1094/" class="social-link">
+                    <img src="img/FB.png" class="social-icon" alt="Facebook">
+                    <div class="social-label">Facebook</div>
+                </a>
+                <a href="https://discordapp.com/users/790951051557732473" class="social-link">
+                    <img src="img/Discord.png" class="social-icon" alt="Discord">
+                    <div class="social-label">Discord</div>
+                </a>
+                <a href="https://github.com/shiraga1094" class="social-link">
+                    <img src="img/Github.png" class="social-icon" alt="GitHub">
+                    <div class="social-label">GitHub</div>
                 </a>
             </div>
-            <input type="checkbox" id="Navbar_Listcheckbox">
-            <span>
-                <div class="Navbar_Content"> 
-                    <p> About </p> 
-                </div>
-                <div class="Navbar_Content"> 
-                    <p> Portfolio </p>
-                </div>
-                <div class="Navbar_Content"> 
-                    <p class="Navbar_Blog"> Blog </p> 
-                </div>
-            </span>
-            <div class="Navbar_ListButton">
-                <label for="Navbar_Listcheckbox">
-                    <img width="50px" height="50px" src="img/list_icon.png">
-                </label>
-            </div>
-        </nav>
-        <div id="First_Page">
-            <div class="Title">
-                <div class="Title_content" data-aos="fade-down" data-aos-duration="1500">
-                    <p> Shiraga's<br> Website</p>
-                </div>
-            </div>
-            <div class="Hyperlink">
-                <div class="Hyperlink_content">
-                    <div class="Block" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
-                        <div class="Instagram_pic">
-                            <a href="https://www.instagram.com/c_algorithm_/">
-                                <img src="img/Instagram.png" width="128" height="128">
-                            </a>
-                        </div>
-                        <div class="Instagram_comment">
-                            <p> Instagram</p>
-                        </div>
-                    </div>
-                    <div class="Block" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">
-                        <div class="FB_pic">
-                            <a href="https://www.facebook.com/Shiraga1094/">
-                                <img src="img/FB.png" width="128" height="128">
-                            </a>
-                        </div>
-                        <div class="FB_comment">
-                            <p> FaceBook</p>
-                        </div>
-                    </div>
-                    <div class="Block" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500">
-                        <div class="Discord_pic">
-                            <a href="https://discordapp.com/users/790951051557732473">
-                                <img src="img/Discord.png" width="128" height="128">
-                            </a>
-                        </div>
-                        <div class="Discord_comment">
-                            <p> Discord</p>
-                        </div>
-                    </div>
-                    <div class="Block" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="2000">
-                        <div class="Github_pic">
-                            <a href="https://github.com/shiraga1094">
-                                <img src="img/Github.png" width="128" height="128">
-                            </a>
-                        </div>
-                        <div class="Github_comment">
-                            <p> Github</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="Clear">
-            </div>
         </div>
-        
-        <div id="Personality">
-            <div class="Title">
-                <div class="Title_content" data-aos="fade-down" data-aos-duration="1500">
-                    <p> Personality &<br> Ability</p>
-                </div>
+    </section>
+
+    <!-- About 區塊 -->
+    <section class="section about-section" id="about">
+        <div class="content-group zh active">
+            <div class="section-header">
+                <div class="section-subtitle">About Me</div>
+                <h2 class="section-title">Personality & Ability</h2>
+                <p class="section-description">
+                    多年的學習經驗與對技術的熱忱，<br>
+                    造就了現在的我。
+                </p>
             </div>
-            <div class="Content">
-                <div class="Content_content">
-                    <div class="Block" data-aos="fade-up" data-aos-duration="1500">
-                        <p>熱衷學習，更愛資訊領域</p>
-                        <div class="img_block">
-                            <img src="img/ComputerScience.png" width="250" height="250">
+            <div class="cards-container">
+                <div class="cards-grid">
+                    <div class="ability-card">
+                        <div class="card-image">
+                            <img src="img/ComputerScience.png" alt="Computer Science">
                         </div>
-                        <p>目前就讀於大學相關科系</p>
+                        <div class="card-content">
+                            <h3 class="card-title">熱衷學習，更愛資訊領域</h3>
+                            <p class="card-description">目前就讀於大學相關科系，持續在資訊領域深耕學習。</p>
+                        </div>
                     </div>
-                    <div class="Block" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
-                        <p>多年程式與競賽經驗</p>
-                        <div class="img_block">
-                            <img src="img/Language.png" width="250" height="250">
+                    <div class="ability-card">
+                        <div class="card-image">
+                            <img src="img/Language.png" alt="Programming Languages">
                         </div>
-                        <p>語言以C++為主，其餘會的有Python, Java，目前在學習網頁前端</p>
+                        <div class="card-content">
+                            <h3 class="card-title">多年程式與競賽經驗</h3>
+                            <p class="card-description">語言以 C++ 為主，其餘會的有 Python、Java，目前在學習網頁前端。</p>
+                        </div>
                     </div>
-                    <div class="Block" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">
-                        <p>APCS: 九級分</p>
-                        <div class="img_block">
-                            <img src="img/APCS.png" width="250" height="250">
+                    <div class="ability-card">
+                        <div class="card-image">
+                            <img src="img/APCS.png" alt="APCS">
                         </div>
-                        <p>(然後因為考爛只好用APCS組......)</p>
+                        <div class="card-content">
+                            <h3 class="card-title">APCS 九級分</h3>
+                            <p class="card-description">(然後因為考爛只好用APCS組......)</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="Portfolio">
-            <div class="Content">
-                <div class="Block_left">
-                    <div class="img_block_left">
-                        <img src="img/Chess Analysis.png" width="450" height="300">
+
+        <div class="content-group en">
+            <div class="section-header">
+                <div class="section-subtitle">About Me</div>
+                <h2 class="section-title">Personality & Ability</h2>
+                <p class="section-description">
+                    Years of learning experience and passion for technology<br>
+                    have shaped who I am today.
+                </p>
+            </div>
+            <div class="cards-container">
+                <div class="cards-grid">
+                    <div class="ability-card">
+                        <div class="card-image">
+                            <img src="img/ComputerScience.png" alt="Computer Science">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Passionate about Learning & Computer Science</h3>
+                            <p class="card-description">Currently studying in a related university program, continuously deepening knowledge in computer science.</p>
+                        </div>
                     </div>
-                    <div class="Title">
-                        <div class="Title_content" data-aos="fade-down" data-aos-duration="1500">
-                            <p>PortFolio</p>
+                    <div class="ability-card">
+                        <div class="card-image">
+                            <img src="img/Language.png" alt="Programming Languages">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Years of Programming & Competition Experience</h3>
+                            <p class="card-description">Primarily using C++, also proficient in Python and Java, currently learning web frontend development.</p>
+                        </div>
+                    </div>
+                    <div class="ability-card">
+                        <div class="card-image">
+                            <img src="img/APCS.png" alt="APCS">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">APCS Level 9</h3>
+                            <p class="card-description">APCS is Taiwan's Advanced Placement Computer Science exam, demonstrating solid programming fundamentals and problem-solving abilities.</p>
                         </div>
                     </div>
                 </div>
-                <div class="Block_right">
-                    <div class="content" data-aos="fade-right" data-aos-duration="1500">
-                        <ul>
-                            <li>Collections during High School</li>
-                            <ul>
-                                <li>
-                                <a href="https://github.com/shiraga1094/A-Chasing-Game"> A Chasing Game</a>
-                                </li>
-                                <li>
-                                <a href="https://github.com/shiraga1094/Chess"> Chess Analysis Tool</a>
-                                </li>
-                            </ul>
+            </div>
+        </div>
+
+        <div class="content-group ja">
+            <div class="section-header">
+                <div class="section-subtitle">私について</div>
+                <h2 class="section-title">性格と能力</h2>
+                <p class="section-description">
+                    長年の学習経験と技術への情熱が<br>
+                    今の私を形作りました。
+                </p>
+            </div>
+            <div class="cards-container">
+                <div class="cards-grid">
+                    <div class="ability-card">
+                        <div class="card-image">
+                            <img src="img/ComputerScience.png" alt="Computer Science">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">学習に情熱、情報分野が大好き</h3>
+                            <p class="card-description">現在大学の関連学科に在籍し、情報分野で継続的に学習を深めています。</p>
+                        </div>
+                    </div>
+                    <div class="ability-card">
+                        <div class="card-image">
+                            <img src="img/Language.png" alt="Programming Languages">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">長年のプログラミングと競技経験</h3>
+                            <p class="card-description">主にC++を使用し、PythonとJavaも習得、現在はWebフロントエンド開発を学習中です。</p>
+                        </div>
+                    </div>
+                    <div class="ability-card">
+                        <div class="card-image">
+                            <img src="img/APCS.png" alt="APCS">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">APCS 9級</h3>
+                            <p class="card-description">APCSは台湾の大学プログラミング先修検定で、確かな実力を示すプログラミング基礎と問題解決能力の証明です。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-group id">
+            <div class="section-header">
+                <div class="section-subtitle">Tentang Saya</div>
+                <h2 class="section-title">Kepribadian & Kemampuan</h2>
+                <p class="section-description">
+                    Bertahun-tahun pengalaman belajar dan passion terhadap teknologi<br>
+                    telah membentuk siapa saya hari ini.
+                </p>
+            </div>
+            <div class="cards-container">
+                <div class="cards-grid">
+                    <div class="ability-card">
+                        <div class="card-image">
+                            <img src="img/ComputerScience.png" alt="Computer Science">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Passionate Belajar & IT</h3>
+                            <p class="card-description">Kuliah di program universitas terkait, terus memperdalam ilmu komputer.</p>
+                        </div>
+                    </div>
+                    <div class="ability-card">
+                        <div class="card-image">
+                            <img src="img/Language.png" alt="Programming Languages">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Pengalaman Programming</h3>
+                            <p class="card-description">Utama C++, juga Python dan Java, sedang belajar web frontend.</p>
+                        </div>
+                    </div>
+                    <div class="ability-card">
+                        <div class="card-image">
+                            <img src="img/APCS.png" alt="APCS">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">APCS Level 9</h3>
+                            <p class="card-description">APCS adalah ujian programming Taiwan yang menunjukkan kemampuan solid dalam programming.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio 區塊 -->
+    <section class="section portfolio-section" id="portfolio">
+        <div class="content-group zh active">
+            <div class="section-header">
+                <div class="section-subtitle">My Works</div>
+                <h2 class="section-title">Portfolio</h2>
+                <p class="section-description">
+                    高中時期的作品集，<br>
+                    記錄著學習程式設計的軌跡。
+                </p>
+            </div>
+            <div class="portfolio-container">
+                <div class="portfolio-showcase">
+                    <div class="portfolio-content">
+                        <h3>高中時期作品集</h3>
+                        <ul class="portfolio-list">
+                            <li class="portfolio-item">
+                                <a href="https://github.com/shiraga1094/A-Chasing-Game">A Chasing Game - 追逐遊戲</a>
+                            </li>
+                            <li class="portfolio-item">
+                                <a href="https://github.com/shiraga1094/Chess">Chess Analysis Tool - 西洋棋分析工具</a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="img_block_right">
-                        <img src="img/A Chasing Game.png" width="250" height="300">
+                    <div class="portfolio-images">
+                        <div class="large-portfolio-image">
+                            <img src="img/Chess Analysis.png" alt="Chess Analysis" style="width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                        <div class="large-portfolio-image">
+                            <img src="img/A Chasing Game.png" alt="A Chasing Game" style="width: 100%; height: 300px; object-fit: cover;">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="Information">
-            <div class="Title">
-                <div class="Title_content">
-                    <p>Information</p>
-                </div>
-            </div>
-            <div class="Content" data-aos="fade-up" data-aos-duration="1500">
-                <div class="content">
-                    <div class="Block">
-                        <p>Occupation</p>
-                        <div class="answer">
-                            <p>Student</p>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="Block">
-                        <p>Instagram</p>
-                        <div class="answer">
-                            <a href="https://www.instagram.com/c_algorithm_/">
-                                <p> @c_algorithm_</p>
-                            </a>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="Block">
-                        <p>Email</p>
-                        <div class="answer">
-                        <a href="mailto: shiraga1094@gmail.com">
-                            <p> shiraga1094@gmail.com</p>
-                        </a>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer>
-            <div class="footer">
-                <p> © Copyright shiraga1094.github.io</p>
-            </div>
-        </footer>
 
-        <script>
-            AOS.init();
-        </script>
-    </body>
-    
+        <div class="content-group en">
+            <div class="section-header">
+                <div class="section-subtitle">My Works</div>
+                <h2 class="section-title">Portfolio</h2>
+                <p class="section-description">
+                    Collection of works from high school,<br>
+                    documenting my journey in learning programming.
+                </p>
+            </div>
+            <div class="portfolio-container">
+                <div class="portfolio-showcase">
+                    <div class="portfolio-content">
+                        <h3>Collections from High School</h3>
+                        <ul class="portfolio-list">
+                            <li class="portfolio-item">
+                                <a href="https://github.com/shiraga1094/A-Chasing-Game">A Chasing Game</a>
+                            </li>
+                            <li class="portfolio-item">
+                                <a href="https://github.com/shiraga1094/Chess">Chess Analysis Tool</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-images">
+                        <div class="large-portfolio-image">
+                            <img src="img/Chess Analysis.png" alt="Chess Analysis" style="width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                        <div class="large-portfolio-image">
+                            <img src="img/A Chasing Game.png" alt="A Chasing Game" style="width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-group ja">
+            <div class="section-header">
+                <div class="section-subtitle">私の作品</div>
+                <h2 class="section-title">ポートフォリオ</h2>
+                <p class="section-description">
+                    高校時代の作品集、<br>
+                    プログラミング学習の軌跡を記録しています。
+                </p>
+            </div>
+            <div class="portfolio-container">
+                <div class="portfolio-showcase">
+                    <div class="portfolio-content">
+                        <h3>高校時代の作品集</h3>
+                        <ul class="portfolio-list">
+                            <li class="portfolio-item">
+                                <a href="https://github.com/shiraga1094/A-Chasing-Game">A Chasing Game - 追跡ゲーム</a>
+                            </li>
+                            <li class="portfolio-item">
+                                <a href="https://github.com/shiraga1094/Chess">Chess Analysis Tool - チェス分析ツール</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-images">
+                        <div class="large-portfolio-image">
+                            <img src="img/Chess Analysis.png" alt="Chess Analysis" style="width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                        <div class="large-portfolio-image">
+                            <img src="img/A Chasing Game.png" alt="A Chasing Game" style="width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-group id">
+            <div class="section-header">
+                <div class="section-subtitle">Karya Saya</div>
+                <h2 class="section-title">Portofolio</h2>
+                <p class="section-description">
+                    Koleksi karya dari SMA,<br>
+                    dokumentasi perjalanan belajar programming.
+                </p>
+            </div>
+            <div class="portfolio-container">
+                <div class="portfolio-showcase">
+                    <div class="portfolio-content">
+                        <h3>Koleksi dari SMA</h3>
+                        <ul class="portfolio-list">
+                            <li class="portfolio-item">
+                                <a href="https://github.com/shiraga1094/A-Chasing-Game">A Chasing Game - Game Mengejar</a>
+                            </li>
+                            <li class="portfolio-item">
+                                <a href="https://github.com/shiraga1094/Chess">Chess Analysis Tool - Tool Analisis Catur</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-images">
+                        <div class="large-portfolio-image">
+                            <img src="img/Chess Analysis.png" alt="Chess Analysis" style="width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                        <div class="large-portfolio-image">
+                            <img src="img/A Chasing Game.png" alt="A Chasing Game" style="width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact 區塊 -->
+    <section class="section contact-section" id="contact">
+        <div class="content-group zh active">
+            <div class="section-header">
+                <div class="section-subtitle">Get in Touch</div>
+                <h2 class="section-title">聯絡資訊</h2>
+            </div>
+            <div class="info-container">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">職業</div>
+                        <div class="info-value">學生</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Instagram</div>
+                        <div class="info-value">
+                            <a href="https://www.instagram.com/c_algorithm_/">@c_algorithm_</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">
+                            <a href="mailto:shiraga1094@gmail.com">shiraga1094@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-group en">
+            <div class="section-header">
+                <div class="section-subtitle">Get in Touch</div>
+                <h2 class="section-title">Information</h2>
+            </div>
+            <div class="info-container">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Occupation</div>
+                        <div class="info-value">Student</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Instagram</div>
+                        <div class="info-value">
+                            <a href="https://www.instagram.com/c_algorithm_/">@c_algorithm_</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">
+                            <a href="mailto:shiraga1094@gmail.com">shiraga1094@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-group ja">
+            <div class="section-header">
+                <div class="section-subtitle">お問い合わせ</div>
+                <h2 class="section-title">情報</h2>
+            </div>
+            <div class="info-container">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">職業</div>
+                        <div class="info-value">学生</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Instagram</div>
+                        <div class="info-value">
+                            <a href="https://www.instagram.com/c_algorithm_/">@c_algorithm_</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">
+                            <a href="mailto:shiraga1094@gmail.com">shiraga1094@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-group id">
+            <div class="section-header">
+                <div class="section-subtitle">Hubungi Saya</div>
+                <h2 class="section-title">Informasi</h2>
+            </div>
+            <div class="info-container">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Pekerjaan</div>
+                        <div class="info-value">Mahasiswa</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Instagram</div>
+                        <div class="info-value">
+                            <a href="https://www.instagram.com/c_algorithm_/">@c_algorithm_</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">
+                            <a href="mailto:shiraga1094@gmail.com">shiraga1094@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text" id="footer-text">© 2024 Shiraga1094. 版權所有。</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
