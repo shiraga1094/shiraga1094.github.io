@@ -6,7 +6,8 @@ const translations = {
         navPortfolio: '作品集',
         navContact: '聯絡方式',
         heroDesc: '熱衷學習，更愛資訊領域。<br>持續在程式設計與演算法的道路上精進。',
-        footerText: '© 2024 Shiraga1094. 版權所有。'
+        footerText: '© 2024 Shiraga1094. 版權所有。',
+        transitionText: '中文'
     },
     en: {
         title: "Shiraga1094's Website",
@@ -14,7 +15,8 @@ const translations = {
         navPortfolio: 'Portfolio',
         navContact: 'Contact',
         heroDesc: 'Passionate about learning, especially in the field of computer science.<br>Continuously improving in programming and algorithms.',
-        footerText: '© 2024 Shiraga1094. All rights reserved.'
+        footerText: '© 2024 Shiraga1094. All rights reserved.',
+        transitionText: 'English'
     },
     ja: {
         title: 'Shiraga1094のウェブサイト',
@@ -22,7 +24,8 @@ const translations = {
         navPortfolio: 'ポートフォリオ',
         navContact: 'お問い合わせ',
         heroDesc: '学習に情熱を持ち、特に情報分野が大好きです。<br>プログラミングとアルゴリズムの道を歩み続けています。',
-        footerText: '© 2024 Shiraga1094. 全著作権所有。'
+        footerText: '© 2024 Shiraga1094. 全著作権所有。',
+        transitionText: '日本語'
     },
     id: {
         title: 'Website Shiraga1094',
@@ -30,16 +33,70 @@ const translations = {
         navPortfolio: 'Portofolio',
         navContact: 'Kontak',
         heroDesc: 'Berantusias dalam belajar, khususnya dalam ilmu komputer. <br>Terus mengembangkan ilmu di bidang programming dan algoritma.',
-        footerText: '© 2024 Shiraga1094. Hak cipta dilindungi.'
+        footerText: '© 2024 Shiraga1094. Hak cipta dilindungi.',
+        transitionText: 'Indonesia'
     }
 };
 
 let currentLang = 'zh';
+let isTransitioning = false;
 
 // 語言切換功能
 function switchLanguage(lang) {
-    if (lang === currentLang) return;
+    if (lang === currentLang || isTransitioning) return;
     
+    isTransitioning = true;
+    
+    // 創建刷屏遮罩
+    createWipeOverlay();
+    
+    // 第一次刷屏：從右邊快速刷入
+    setTimeout(() => {
+        const overlay = document.querySelector('.language-wipe-overlay');
+        if (overlay) {
+            overlay.classList.add('wipe-in');
+        }
+    }, 5);
+    
+    // 在完全遮住時切換語言內容
+    setTimeout(() => {
+        performLanguageSwitch(lang);
+    }, 80); // 刷屏完成時切換
+    
+    // 第二次刷屏：快速向左刷出
+    setTimeout(() => {
+        const overlay = document.querySelector('.language-wipe-overlay');
+        if (overlay) {
+            overlay.classList.add('wipe-out');
+        }
+    }, 80);
+    
+    // 移除遮罩並重置狀態
+    setTimeout(() => {
+        const overlay = document.querySelector('.language-wipe-overlay');
+        if (overlay) {
+            overlay.remove();
+        }
+        isTransitioning = false;
+    }, 180);
+}
+
+// 創建簡潔刷屏遮罩
+function createWipeOverlay() {
+    // 移除已存在的遮罩
+    const existingOverlay = document.querySelector('.language-wipe-overlay');
+    if (existingOverlay) {
+        existingOverlay.remove();
+    }
+    
+    const overlay = document.createElement('div');
+    overlay.className = 'language-wipe-overlay';
+    
+    document.body.appendChild(overlay);
+}
+
+// 執行語言切換
+function performLanguageSwitch(lang) {
     currentLang = lang;
     
     // 更新按鈕狀態
@@ -167,7 +224,7 @@ window.addEventListener('scroll', () => {
 
 // 鍵盤快捷鍵
 document.addEventListener('keydown', (e) => {
-    if (e.altKey) {
+    if (e.altKey && !isTransitioning) {
         switch(e.key) {
             case '1':
                 switchLanguage('zh');

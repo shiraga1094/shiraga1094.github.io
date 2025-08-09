@@ -11,6 +11,9 @@ function initTerminalAnimation() {
     
     if (!terminalStartup || !terminalLines.length) return;
     
+    // 更新檔案日期為今天
+    updateFileDates();
+    
     // 隱藏所有行
     terminalLines.forEach(line => {
         line.classList.add('hidden');
@@ -65,10 +68,11 @@ function initTerminalAnimation() {
         
         // 如果是output行，直接顯示
         if (originalHTML.includes('class="output"')) {
-            const outputMatch = originalHTML.match(/<span class="output">(.*?)<\/span>/);
+            const outputMatch = originalHTML.match(/<span class="output"[^>]*>(.*?)<\/span>/);
             if (outputMatch) {
                 const outputText = outputMatch[1];
-                typeText(currentLine, `<span class="output">${outputText}</span>`, () => {
+                const outputId = originalHTML.match(/id="([^"]*)"/) ? ` id="${originalHTML.match(/id="([^"]*)"/)[1]}"` : '';
+                typeText(currentLine, `<span class="output"${outputId}>${outputText}</span>`, () => {
                     setTimeout(() => {
                         currentLineIndex++;
                         typeNextLine();
@@ -125,6 +129,34 @@ function initTerminalAnimation() {
     
     // 開始打字動畫
     typeNextLine();
+}
+
+function updateFileDates() {
+    // 獲取今天的日期
+    const today = new Date();
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    
+    const month = monthNames[today.getMonth()];
+    const day = today.getDate().toString().padStart(2, ' ');
+    const year = today.getFullYear();
+    
+    const dateString = `${month} ${day} ${year}`;
+    
+    // 更新檔案日期
+    const lsAbout = document.getElementById('ls-about');
+    const lsPortfolio = document.getElementById('ls-portfolio');
+    const lsIndex = document.getElementById('ls-index');
+    
+    if (lsAbout) {
+        lsAbout.textContent = `drwxr-xr-x 3 shiraga staff  96 ${dateString} about/`;
+    }
+    if (lsPortfolio) {
+        lsPortfolio.textContent = `drwxr-xr-x 2 shiraga staff  64 ${dateString} portfolio/`;
+    }
+    if (lsIndex) {
+        lsIndex.textContent = `-rw-r--r-- 1 shiraga staff 2048 ${dateString} index.html`;
+    }
 }
 
 function startOriginalLoader() {
