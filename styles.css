@@ -564,7 +564,7 @@ body {
     word-wrap: break-word;
 }
 
-/* Portfolio 區塊 */
+/* Portfolio 區塊 - 更新為橫向布局 */
 .portfolio-section {
     background: linear-gradient(135deg, #d7c1ad 0%, #E3D5C9 100%);
     transform: scale(0.9) rotate(-2deg);
@@ -578,53 +578,74 @@ body {
 }
 
 .portfolio-container {
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
 .portfolio-showcase {
     display: flex;
     align-items: center;
     min-height: 80vh;
+    gap: 60px; /* 內容和圖片之間的間距 */
 }
 
 .portfolio-content {
     flex: 1;
-    padding: 80px 60px;
+    padding: 60px 40px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.portfolio-content h3 {
+    font-family: 'Atteron', serif;
+    font-size: 28px;
+    color: #2c2c2c;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
 }
 
 .portfolio-images {
     flex: 1;
-    padding: 40px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 30px;
-    align-items: center;
+    padding: 20px;
 }
 
 .large-portfolio-image {
-    grid-column: 1 / -1;
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
     transition: transform 0.8s ease;
+    height: 300px; /* 固定高度 */
 }
 
 .large-portfolio-image:hover {
     transform: scale(1.05) rotate(1deg);
 }
 
+.large-portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.large-portfolio-image:hover img {
+    transform: scale(1.1);
+}
+
 .portfolio-list {
     list-style: none;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .portfolio-item {
-    margin-bottom: 40px;
-    padding: 30px;
+    margin-bottom: 30px;
+    padding: 25px 30px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     backdrop-filter: blur(10px);
@@ -642,6 +663,7 @@ body {
 .portfolio-item:hover {
     transform: translateX(20px);
     background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .portfolio-item a {
@@ -651,6 +673,11 @@ body {
     font-weight: 500;
     display: block;
     transition: color 0.4s ease;
+    line-height: 1.4;
+}
+
+.portfolio-item a:hover {
+    color: #6b5b4d;
 }
 
 /* Contact 區塊 */
@@ -789,34 +816,6 @@ body {
     transform: translateX(200%);
 }
 
-/* 確保導航欄和語言切換器在最上層 */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(241, 217, 195, 0.95);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(215, 193, 173, 0.3);
-    z-index: 1000; /* 保持在遮罩上方 */
-    transition: all 0.6s ease;
-}
-
-.language-switcher {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    z-index: 1001; /* 保持在最上層 */
-    display: flex;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 12px 16px;
-    border-radius: 30px;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(215, 193, 173, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
 /* 響應式設計 */
 @media (max-width: 768px) {
     /* 導航欄手機版調整 */
@@ -947,7 +946,6 @@ body {
     .social-label {
         font-size: 10px;
         letter-spacing: 0.5px;
-    }言切換器高度 */
     }
 
     .hero-links {
@@ -1017,18 +1015,46 @@ body {
         height: 150px;
     }
 
-    /* 作品集手機版調整 */
+    /* Portfolio 手機版調整 - 改為直向 */
     .portfolio-showcase {
-        flex-direction: column;
+        flex-direction: column; /* 手機版改為直向 */
+        gap: 40px;
+        min-height: auto;
     }
 
     .portfolio-content {
-        padding: 40px 20px;
+        padding: 40px 30px;
+        order: 1; /* 內容在上方 */
+    }
+
+    .portfolio-content h3 {
+        font-size: 22px;
+        margin-bottom: 30px;
+        text-align: center;
     }
 
     .portfolio-images {
+        order: 2; /* 圖片在下方 */
         padding: 20px;
-        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .large-portfolio-image {
+        height: 200px; /* 手機版降低高度 */
+    }
+
+    .portfolio-item {
+        padding: 20px 25px;
+        margin-bottom: 25px;
+    }
+
+    .portfolio-item a {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .portfolio-item:hover {
+        transform: translateY(-5px); /* 手機版改為上下移動 */
     }
 
     /* 聯絡資訊手機版調整 */
@@ -1045,5 +1071,24 @@ body {
     .info-value {
         font-size: 12px;
         line-height: 1.3;
+    }
+}
+
+/* 平板版調整 */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .portfolio-showcase {
+        gap: 40px;
+    }
+
+    .portfolio-content {
+        padding: 50px 35px;
+    }
+
+    .portfolio-content h3 {
+        font-size: 24px;
+    }
+
+    .large-portfolio-image {
+        height: 250px;
     }
 }
