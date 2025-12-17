@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+    <head>
+        <title> 潘潘合併 </title>
+        <link rel="stylesheet" href="gamestyle.css">
+    </head>
+    <body>
+        <script src="game.js"></script>
+        <div id="Intro">
+            <h1> 小遊戲:潘潘合併 </h1>
+            <div class="Rule">
+                <h2>規則</h2>
+                <ul class="Rule_content">
+                    <li>遊戲中會有許多潘潘(方框)，任選兩個潘潘可以合併</li>
+                    <li>潘潘合併需要的成本數值為兩個潘潘的數值之和</li>
+                    <li>合併後，新的潘潘數值會是原來兩個潘潘的數值之和</li>
+                    <li>當潘潘只剩下一隻或是時間結束時遊戲結束</li>
+                    <li>遊戲結束時，潘潘需只剩下一隻並用最少成本才算勝利</li>
+                </ul>
+            </div>
+            <div id="Button">
+                <button onclick="Start_Game()">確認並開始遊戲</button>
+            </div>
+        </div>
+        <div id="GameOver">
+            <div class="GameOverMessage">
+                <h1><span id="Result"></span></h1>
+            </div>
+        </div>
+        <div id="Game">
+            <div id="GameMessage">
+                <h1> 還有<span id="Countdown"></span>秒</h1>
+                <h2> 花費成本:&nbsp;<span id="Cost"></span></h2>
+            </div>
+            <div class="Manypanpan">
+                <div id="panblock1" onclick="Choose(0)"><span id="panpan1"></span></div>
+                <div id="panblock2" onclick="Choose(1)"><span id="panpan2"></span></div>
+                <div id="panblock3" onclick="Choose(2)"><span id="panpan3"></span></div>
+                <div id="panblock4" onclick="Choose(3)"><span id="panpan4"></span></div>
+                <div id="panblock5" onclick="Choose(4)"><span id="panpan5"></span></div>
+                <div id="panblock6" onclick="Choose(5)"><span id="panpan6"></span></div>
+                <div id="panblock7" onclick="Choose(6)"><span id="panpan7"></span></div>
+                <div id="panblock8" onclick="Choose(7)"><span id="panpan8"></span></div>
+            </div>
+        </div>
+    </body>
